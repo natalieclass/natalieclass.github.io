@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enhancement Two: Algorithms and Data Structures</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+         max-width: 760px; margin: 0 auto; padding: 2rem 1rem;
+         line-height: 1.7; color: #222; }
+  h1 { margin-bottom: 0.25rem; }
+  .sub { color: #666; margin-top: 0; }
+  h2 { margin-top: 2.5rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+  .links a { display: inline-block; margin-right: 1rem; }
+  .back { margin-top: 3rem; display: block; }
+</style>
+</head>
+<body>
+
+<h1>Enhancement Two: Algorithms and Data Structures</h1>
+<p class="sub">P.S. Coffee Shop &mdash; shopping cart</p>
+
+<p class="links">
+  <a href="https://github.com/natalieclass/CS499-PS-Coffee-Shop-Enhanced/tree/enhancement-two-algorithms">View the enhanced code</a>
+  <a href="https://github.com/natalieclass/CS499-PS-Coffee-Shop-Enhanced/compare/enhancement-one-software-design...enhancement-two-algorithms">See what changed</a>
+</p>
+
+<h2>Narrative</h2>
+
+<p>This milestone’s artifact is cart.js, catalog.js, productQuery.js, SyrupsSauces.js and SyrupsSauces.html. Cart.js deals with calculating total prices when products are added to the shopping cart, along with the tax rate and the shipping cost. SyrupsSauces.html previously had all the product prices hardcoded, thus catalog.js was created for efficiency, and productQuery.js was added to handle the searching and sorting. SyrupsSauces.js had the arithmetic logic that was incorrectly shortchanging my products, so better logic was added. As with all my other artifacts, it was created in 2022 for a capstone course at Brookdale Community College. </p>
+<p>I included this artifact in my ePortfolio because it shows how I can incorporate data structure concepts into a shopping cart, and the arithmetic behind sorting and filtering products. This artifact also had logical errors I hadn’t had time to previously fix, and because it was built off hardcoded product prices. My skills are reflected in the catalog keyed by SKU, the cart stored as a hash map instead of a fixed 8-slot array, the monetary math done in whole cents, and the running subtotal that updates in O(1) instead of looping every row each time a quantity changes. In the original page, two items in the cart gave a subtotal of $6.33 when it should have been $13.97. The line totals were stored as strings, thus the “+” was joining them instead of adding them, and "6.32" + 7.65 became "6.327.65." The per-item totals were correct the whole time, so nothing looked broken while the shop undercharged any order with more than one item. Now products are added to the catalog rather than hardcoded into several places. </p>
+<p>I planned to meet outcomes three and four, and both are covered. Outcome three is the hash map replacing the fixed array, the running subtotal, and the sort comparators. Outcome four is the integer cents, splitting the catalog, cart and query logic into their own files, and the tests. The tests prove the cart math is right, including the two-item case that used to give $6.33. </p>
+<p>One update is that I said I would build a trie for product search and I didn’t; I used a linear scan instead. A trie answers prefix queries and what a customer needs is a substring match. Every product name in my catalog starts with “DVG,” so a prefix trie would only match on that, and a search for “choc” still must find “DVG White Chocolate Sauce.” Loading the catalog from the database moved to the database enhancement, since the product tables need to be consolidated first, and sorting by supplier was dropped because these products don’t have a supplier. </p>
+<p>The part I found hard is that I haven’t coded JavaScript for data structure logic in a while, and I found myself looking at resources to brush up. The challenge was deciding the best approach for the cart. The trie is the clearest example, since I planned it in Module One and then found a better approach. There was also inconsistency in the code where some products were labeled SF and some weren’t, thus I had to pick one naming scheme for the catalog. The product blocks in the HTML were nearly identical and repeated eight times, which made it hard on the eyes, and a few values came out wrong when I first moved them over because I pulled them from the wrong block. Simplifying the data into one file resolved that. </p>
+
+<a class="back" href="index.html">&larr; Back to ePortfolio</a>
+
+</body>
+</html>
