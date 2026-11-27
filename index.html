@@ -9,6 +9,95 @@
   <h2>Computer Science ePortfolio</h2>
   <p>Computer science undergraduate at SNHU. For this capstone, I will do a continuation of previous community college capstone project, a coffee shop website!</p>
 
+
+
+  
+<h2>Professional Self-Assessment</h2>
+
+<p>Working through this program and building my ePortfolio lets me see how my
+skills have changed. I can look at what I built four years ago and compare it to
+what I can do now. The biggest difference is how I approach a problem. I think
+about security, correctness, and maintainability before I start writing, and I
+did not do that before. This matches what I want from a career: to keep
+learning, and to build things that work for users.</p>
+
+<p>While most of my experience is academic, the work translates. I would be
+comfortable being handed data that needs cleaning, a SQL problem, or a bug
+report. Every company has its processes, and learning those processes is part of
+being useful anywhere. What sets me apart is willingness. I am willing to learn,
+to build, and to stay with a problem until I understand it. I have managed
+several projects at once, and I have a repository that someone else can clone
+and run. I can also explain my code and point out what is wrong with it, which I
+think matters as much as writing the code.</p>
+
+<h3>Collaborating in a team environment</h3>
+<p>I worked in a team through CS 250. My group chose our roles, worked in
+sprints, and built a project over the course. We wrote the documentation and the
+user stories. We presented our work to the other groups. I also did team
+projects at Brookdale. SNHU is online, so most collaboration was through peer
+discussions where we discussed each other's work and obstacles.</p>
+
+<h3>Communicating with stakeholders</h3>
+<p>Writing user stories in that course meant describing the system from the
+customer's point of view instead of the developer's. Presenting to groups meant
+explaining decisions to people who were learning about the issues within the
+project. The README is written for another developer setting the project up. The
+code review video means explaining my own code to someone who has never seen
+it.</p>
+
+<h3>Data structures and algorithms</h3>
+<p>CS 260 and MAT 230 gave me the foundation. The shopping cart in this course is
+where I had to use that foundation. I replaced a fixed eight-slot array with a
+hash map keyed by SKU, so a lookup is O(1). Adding a product is one entry instead
+of editing HTML and renumbering indexes. I replaced a loop that rescanned every
+row on each keystroke with a running subtotal. The decision I am happiest with is
+one I did not build. I had planned a trie for search, then realized a trie
+answers prefix queries, and customers need a substring match. Every product name
+in my catalog starts with the same three letters, so a prefix trie would only
+match on those. I used a linear scan and explained why.</p>
+
+<h3>Software engineering and database</h3>
+<p>CS 320 is where I learned to write tests instead of checking output by hand.
+That habit mattered most here. The application has twenty-eight automated tests
+that run without a database or a browser, and it had none before. DAD 220 and
+IT 235 are behind the schema work. CS 340 had me building against a database for
+a client. In this course, I split a 122-line file that handled routing, business
+logic, and SQL into routes, controllers, services, and repositories. That is what
+made testing possible. On the database side, I merged three overlapping product
+tables into one, added the order tables that were missing, fixed the keys and
+column types, and made order placement run inside a transaction.</p>
+
+<h3>Security</h3>
+<p>In CS 305, I worked with hashing and different types of encryption keys. The
+sharpest lesson came from reading my old code. My MySQL password sat in plain
+text in a public repository for four years, and I never noticed. Passwords were
+stored unhashed. Sign in was a GET request, so credentials went into the URL,
+browser history, and server logs. Fixing that meant bcrypt, credentials in
+environment variables, a POST for sign-in, parameterized queries, and the same
+error message whether the email is wrong or the password is. Later I made the
+server look prices up instead of trusting the browser, and gave the application a
+database account that cannot drop a table. None of those were exotic attacks.
+They were defaults I never questioned.</p>
+
+<h3>How the artifacts fit together</h3>
+<p>The three artifacts are not separate projects. They are one application,
+P.S. Coffee Shop, built in 2022 for a friend who wanted to open one, enhanced
+three times. Each enhancement made the next one possible. The first split the
+back end into layers, which is what everything else was built on and what made
+testing possible. The second pulled the product data out of the HTML and fixed
+arithmetic that had been undercharging on every order with more than one item. It
+also exposed a problem it couldn't fix: prices lived in the browser. The third
+closed that. The catalog moved into a Product table served over an endpoint built
+on the first enhancement's layers, and checkout now records a real order in a
+transaction with prices looked up on the server.</p>
+
+<p>Put together, they are one application that got safer and more correct in
+three passes, and they cover the parts of this work I want to keep doing.</p>
+
+<hr>
+
+
+
   
   
   <h2>Code Review</h2>
